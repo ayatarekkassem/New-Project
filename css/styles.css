@@ -8,131 +8,218 @@
  *
 */
 
-
 /* ---- Base Rules ---- */
-body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+
+/* smooth scroll 
+*/
+html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: rgb(136, 203, 171);
+    background: linear-gradient(
+      0deg,
+      rgba(136, 203, 171, 1) 0%,
+      rgba(0, 13, 60, 1) 100%
+    );
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
-}
-
-
-/* Typeography General*/
-h1 {
+  }
+  
+  /* Typeography General*/
+  h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
     margin: 2em 1rem;
-}
-
-@media only screen and (min-width: 35em){
+  }
+  
+  @media only screen and (min-width: 35em) {
     h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
+      font-size: 7em;
+      margin: 2em 4rem 1em;
     }
-}
-
-h2 {
+  }
+  
+  h2 {
     border-bottom: 1px solid #cc1;
     font-family: 'Oxygen', Sans-Serif;
     font-size: 3em;
     color: #fff;
-}
-
-p {
+  }
+  
+  p {
     line-height: 1.6em;
     color: #eee;
-}
-
-/* ---- Layout Rules ---- */
-main {
+  }
+  
+  /* ---- Layout Rules ---- */
+  main {
     margin: 10vh 1em 10vh;
-}
-
-.main-hero {
+  }
+  
+  .main-hero {
     min-height: 40vh;
     padding-top: 3em;
-}
-
-section {
+  }
+  
+  section {
     position: relative;
     min-height: 80vh;
-}
-
-
-/* ---- Module Rules ---- */
-
-/* Navigation Styles*/
-.navbar__menu ul {
+  }
+  
+  /* ---- Module Rules ---- */
+  
+  /* Navigation Styles*/
+  .navbar__menu ul {
     padding-left: 0;
     margin: 0;
     text-align: right;
+  }
+   
+ 
+  @media only screen and (max-width: 768px) {
+    .navbar__menu ul {
+      text-align: center;
+      margin: auto;
+  }
+  
+  header h1{
+  margin-top: 162px;
+  }
+  section{
+    padding-top: 60px;
+  }
+  .navbar__menu {display: none;}
 }
 
-.navbar__menu li {
+ 
+  .navbar__menu{
+    position: relative;
+    transition: all 0.3s ease-in-out;
+
+  }
+ .bars{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    border: 1px solid  rgba(0,0,0,0.7);
+    padding: 7px;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+
+  }
+ .bar{
+    width: 34px;
+    height: 3px;
+    background-color: rgba(0,0,0,0.7);
+    display: block;
+    margin-bottom: 3px;
+    
+  }
+  .bars-toggler{
+    display: block;
+  }
+  .bars:hover span:nth-of-type(1),
+  .bars:hover span:nth-of-type(2),
+  .bars:hover span:nth-of-type(3)
+  {
+    transform: rotateY(180deg);
+  }
+  .bars:hover span:nth-last-of-type(1){
+    transition: all 0,5s;
+  }
+  .bars:hover span:nth-last-of-type(2){
+    transition: all 0,4s;
+  }
+  .bars:hover span:nth-last-of-type(3){
+    transition: all 0,3s;
+  }
+
+
+
+  .navbar__menu li {
     display: inline-block;
-}
-
-.navbar__menu .menu__link {
+  }
+  
+  .navbar__menu .menu__link {
     display: block;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
-}
-
-.navbar__menu .menu__link:hover {
+  }
+  
+  .navbarclick {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
-}
+  }
+ .display{display: none;}
+  @media only screen and (max-width: 768px) {
+    .navbar__list{
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
+    .bars{
+     display: block;
 
-/* Header Styles */
-.page__header {
+   }
+   .navbar__menu ul li{
+     display: block;
+   }
+   .navbar__menu ul{
+    margin-top: 60px;
+    display: none;
+   }
+ }
+  /* Header Styles */
+  .page__header {
     background: #fff;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
-}
-
-/* Footer Styles */
-.page__footer {
+  }
+  
+  /* Footer Styles */
+  .page__footer {
     background: #000;
     padding: 3em;
     color: #fff;
-}
-
-.page__footer p{
+  }
+  
+  .page__footer p {
     color: #fff;
-}
-
-
-/* ---- Theme Rules ---- */
-/* Landing Container Styles */
-.landing__container {
+  }
+  
+  /* ---- Theme Rules ---- */
+  /* Landing Container Styles */
+  .landing__container {
     padding: 1em;
     text-align: left;
-}
-
-@media only screen and (min-width: 35em){
+  }
+  
+  @media only screen and (min-width: 35em) {
     .landing__container {
-        max-width: 50em;
-        padding: 4em;
+      max-width: 50em;
+      padding: 4em;
     }
-}
-
-section:nth-of-type(even) .landing__container {
+  }
+  
+  section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
-}
-
-/* Background Circles */
-/* Note that background circles are created with psuedo elements before and after */
-/* Circles appear to be random do to use of :nth-of-type psuedo class */
-section:nth-of-type(odd) .landing__container::before {
+    text-align: right;
+  }
+  
+  /* Background Circles */
+  /* Note that background circles are created with psuedo elements before and after */
+  /* Circles appear to be random do to use of :nth-of-type psuedo class */
+  section:nth-of-type(odd) .landing__container::before {
     content: '';
     background: rgba(255, 255, 255, 0.187);
     position: absolute;
@@ -142,12 +229,16 @@ section:nth-of-type(odd) .landing__container::before {
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
-}
-
-section:nth-of-type(even) .landing__container::before {
+  }
+  
+  section:nth-of-type(even) .landing__container::before {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     top: 3em;
     right: 3em;
@@ -157,12 +248,16 @@ section:nth-of-type(even) .landing__container::before {
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n) .landing__container::after {
+  }
+  
+  section:nth-of-type(3n) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     right: 0;
     bottom: 0;
@@ -172,12 +267,16 @@ section:nth-of-type(3n) .landing__container::after {
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n + 1) .landing__container::after {
+  }
+  
+  section:nth-of-type(3n + 1) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     right: 20vw;
     bottom: -5em;
@@ -187,41 +286,64 @@ section:nth-of-type(3n + 1) .landing__container::after {
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
-}
-
-
-/* ---- Theme State Rules ---- */
-/* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-}
-
-section.your-active-class .landing__container::before {
+  }
+  
+  /* ---- Theme State Rules ---- */
+  /* Section Active Styles */
+  /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+  section.your-active-class {
+    background: linear-gradient(
+      0deg,
+      rgba(255, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  
+  section.your-active-class .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
-}
-
-section.your-active-class .landing__container::after {
+  }
+  
+  section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
-}
+  }
+  
+  /* Section Active Styles Keyframe Animations */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
+  }
+  
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background: linear-gradient(
+      0deg,
+      rgba(125, 99, 245, 0.301) 0%,
+      rgb(255, 255, 255) 100%
+    );
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 60px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }
 
-/* Section Active Styles Keyframe Animations */
-@keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
-}
-
+  
 /* scroll to top  */
 
 #scroll__top {
@@ -235,35 +357,7 @@ section.your-active-class .landing__container::after {
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
     color: #fff;
+    border: none;
   }
 
   .show{right: 10px!important;}
-
-  /* Add New Section */
-  #btn{
-    position: absolute;
-    top: 150px;
-    right: 30px;
-    width: 150px;
-    padding: 9px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgba(0,0,0,0.7);
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-  }
-
-  @media only screen and (max-width: 768px){ 
-    .navbar__menu li{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        background-color: rgba(2,2,2,0.92);
-
-    }
-    .navbar__menu li a{color: #fff!important;}
-    #btn {
-        top: 497px;
-    }
-  }

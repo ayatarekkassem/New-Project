@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE >
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,11 +13,9 @@
   <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
   <header class="page__header">
-    <nav id="navbar" class="navbar__menu">
+    <nav class="navbar__menu" id="navbar">
       <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list">
-      </ul>
-     
+      <ul id="navbar__list" ></ul>
     </nav>
     <div class="bars" id="bars">
       <span class="bar"></span>
@@ -27,13 +25,12 @@
   </header>
   <main>
     <header class="main__hero">
-      <h1 id="landing-title">Landing Page </h1>
+      <h1>Landing Page </h1>
     </header>
     <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <div class="sections">
     <section id="section1" data-nav="Section 1" class="your-active-class">
       <div class="landing__container">
         <h2>Section 1</h2>
@@ -58,7 +55,6 @@
         <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
       </div>
     </section>
-
     <section id="section4" data-nav="Section 4">
       <div class="landing__container">
         <h2>Section 4</h2>
@@ -67,13 +63,11 @@
         <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
       </div>
     </section>
-    </div>
   </main>
-  <button  id="scroll__top" title="Go to top">Top</button>
-
   <footer class="page__footer">
     <p>&copy Udacity</p>
   </footer>
-  <script src="./js/app.js"></script>
+  <button  id="scroll__top" title="Go to top">Top</button>
+  <script src="js/app.js"></script>
 </body>
 </html>
